@@ -134,6 +134,8 @@ Falando um pouco sobre a função de processamento de imagem, o documento Python
 Fonte: Código Principal, Autoria Própria.
 </p>
 
+O vídeo mostrando a funcionalidade da aplicação está no link abaixo:
+https://drive.google.com/file/d/1foaGM96rrtZePCTRpsDHZXFw3lcYWhrP/view?usp=sharing
 
 ## Referências
 
