@@ -1,4 +1,5 @@
-from flask import Flask, render_template, request, redirect, url_for, flash
+#Importando as bibliotecas
+from flask import Flask, render_template, request, redirect
 from supabase import create_client, Client
 import base64
 from datetime import datetime
@@ -18,16 +19,17 @@ banco = 'Ponderada'
 
 app = Flask(__name__)
 
+#Rota Inicial
 @app.route('/')
 def index():
     return render_template('index.html')
 
+#Rota para enviar imagem para o Processamento e depois salvar no banco
 @app.route('/salvar-imagem', methods=['POST'])
 def salvar_imagem():
     print("Entrou na API")
     imagem_data = request.data.decode('utf-8')
     yolo_processada = Processamento(imagem_data)
-    # _, imagem_base64 = yolo_processada.split(',', 1)
     imagem_bytes = base64.b64decode(yolo_processada)
     data_hora_atual = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     client.storage.from_(banco).upload(data_hora_atual, imagem_bytes)
